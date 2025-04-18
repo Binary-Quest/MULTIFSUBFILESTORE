@@ -88,9 +88,6 @@ async def start(client, message: Message):
         except Exception as e:
             print("Subscription check failed:", e)
 
-    # ✅ This part runs ONLY if user is subscribed
-    await message.reply_text(f"✅ You're subscribed, {message.from_user.first_name}! Welcome!")
-
     if not await db.is_user_exist(message.from_user.id):
         await db.add_user(message.from_user.id, message.from_user.first_name)
         await client.send_message(LOG_CHANNEL, script.LOG_TEXT.format(message.from_user.id, message.from_user.mention))
