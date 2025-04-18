@@ -10,6 +10,9 @@ from pathlib import Path
 from pyrogram import idle
 import logging
 import logging.config
+import pyrogram.utils
+
+pyrogram.utils.MIN_CHANNEL_ID = -1009147483647
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
