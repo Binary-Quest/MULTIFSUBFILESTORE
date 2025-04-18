@@ -67,6 +67,7 @@ def formate_file_name(file_name):
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     username = client.me.username
+    chat_id = message.chat.id
     if AUTH_CHANNEL:
         try:
             btn = await is_subscribed(client, message, AUTH_CHANNEL)
