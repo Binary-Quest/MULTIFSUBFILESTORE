@@ -107,16 +107,20 @@ if len(message.command) != 2:
         InlineKeyboardButton('💁‍♀️ ʜᴇʟᴘ', callback_data='help'),
         InlineKeyboardButton('😊 ᴀʙᴏᴜᴛ', callback_data='about')
     ]]
-        if CLONE_MODE == True:
-            buttons.append([InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')])
-        reply_markup = InlineKeyboardMarkup(buttons)
-        me = client.me
-        await message.reply_photo(
-            photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, me.mention),
-            reply_markup=reply_markup
-        )
-        return
+   if CLONE_MODE == True:
+    buttons.append([
+        InlineKeyboardButton('🤖 ᴄʀᴇᴀᴛᴇ ʏᴏᴜʀ ᴏᴡɴ ᴄʟᴏɴᴇ ʙᴏᴛ', callback_data='clone')
+    ])
+
+reply_markup = InlineKeyboardMarkup(buttons)
+me = await client.get_me()
+await message.reply_photo(
+    photo=random.choice(PICS),
+    caption=script.START_TXT.format(message.from_user.mention, me.mention),
+    reply_markup=reply_markup
+)
+return
+
 
 # Don't Remove Credit Tg - @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot https://youtube.com/@Tech_VJ
